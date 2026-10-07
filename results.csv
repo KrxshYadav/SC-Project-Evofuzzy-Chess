@@ -1,0 +1,51 @@
+game,opening,tuned_colour,result_for_tuned,points_for_tuned,plies,final_material_white,termination,seconds
+1,Start position,white,win,1.0,87,15.0,checkmate,747.7
+2,Start position,black,win,1.0,78,-12.0,checkmate,572.3
+3,Open Game,white,draw,0.5,50,1.0,threefold_repetition,522.6
+4,Open Game,black,loss,0.0,115,17.0,checkmate,730.7
+5,Ruy Lopez,white,win,1.0,44,17.0,checkmate,614.0
+6,Ruy Lopez,black,loss,0.0,62,12.0,checkmate,958.3
+7,Italian Game,white,win,1.0,64,15.0,checkmate,586.8
+8,Italian Game,black,loss,0.0,114,17.0,checkmate,714.7
+9,Petrov Defence,white,loss,0.0,120,-4.0,adjudicated,760.0
+10,Petrov Defence,black,draw,0.5,87,-13.0,threefold_repetition,703.8
+11,Sicilian,white,draw,0.5,114,10.0,threefold_repetition,465.0
+12,Sicilian,black,draw,0.5,115,-2.0,threefold_repetition,1200.3
+13,"Sicilian, d6",white,draw,0.5,70,8.0,threefold_repetition,560.3
+14,"Sicilian, d6",black,win,1.0,98,-8.0,checkmate,780.3
+15,"Sicilian, Nc6",white,loss,0.0,66,-5.0,checkmate,1347.8
+16,"Sicilian, Nc6",black,win,1.0,120,-6.0,adjudicated,1080.3
+17,French Defence,white,draw,0.5,120,1.0,adjudicated,1053.9
+18,French Defence,black,win,1.0,94,-10.0,checkmate,571.8
+19,Caro-Kann,white,loss,0.0,66,7.0,checkmate,515.3
+20,Caro-Kann,black,win,1.0,120,-6.0,adjudicated,751.9
+21,Scandinavian,white,draw,0.5,89,-2.0,threefold_repetition,602.9
+22,Scandinavian,black,win,1.0,100,-17.0,checkmate,592.8
+23,Alekhine Defence,white,win,1.0,120,9.0,adjudicated,485.2
+24,Alekhine Defence,black,win,1.0,70,-2.0,checkmate,814.8
+25,Pirc Defence,white,draw,0.5,76,2.0,threefold_repetition,844.8
+26,Pirc Defence,black,win,1.0,74,-8.0,checkmate,502.3
+27,Modern Defence,white,draw,0.5,83,-6.0,threefold_repetition,645.2
+28,Modern Defence,black,loss,0.0,115,8.0,checkmate,313.3
+29,Queen's Gambit,white,loss,0.0,109,-19.0,checkmate,623.3
+30,Queen's Gambit,black,draw,0.5,90,-3.0,threefold_repetition,384.9
+31,QGD,white,win,1.0,93,25.0,checkmate,514.7
+32,QGD,black,draw,0.5,97,-10.0,threefold_repetition,462.3
+33,Slav Defence,white,win,1.0,87,12.0,checkmate,13756.7
+34,Slav Defence,black,win,1.0,60,-7.0,checkmate,468.0
+35,Indian Defence,white,draw,0.5,95,-2.0,threefold_repetition,713.3
+36,Indian Defence,black,win,1.0,58,-11.0,checkmate,393.8
+37,King's Indian,white,win,1.0,120,5.0,adjudicated,619.9
+38,King's Indian,black,win,1.0,88,-15.0,checkmate,476.4
+39,Queen's Indian,white,win,1.0,120,3.0,adjudicated,891.8
+40,Queen's Indian,black,draw,0.5,91,-4.0,threefold_repetition,13162.8
+41,Dutch Defence,white,loss,0.0,52,4.0,checkmate,13183.8
+42,Dutch Defence,black,win,1.0,94,-14.0,checkmate,13287.4
+43,Symmetrical d4/Nf3,white,win,1.0,109,6.0,checkmate,13391.2
+44,Symmetrical d4/Nf3,black,loss,0.0,61,5.0,checkmate,13034.3
+45,English Opening,white,win,1.0,103,7.0,checkmate,12844.2
+46,English Opening,black,win,1.0,120,-9.0,adjudicated,12850.7
+47,Symmetrical English,white,loss,0.0,120,-6.0,adjudicated,12692.1
+48,Symmetrical English,black,draw,0.5,115,-4.0,threefold_repetition,12554.7
+49,Reti Opening,white,loss,0.0,44,1.0,checkmate,366.8
+50,Reti Opening,black,loss,0.0,69,4.0,checkmate,319.9

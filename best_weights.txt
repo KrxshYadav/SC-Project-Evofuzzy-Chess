@@ -1,0 +1,7 @@
+3.000000  # material
+1.942103  # mobility
+0.439922  # king_safety
+0.848669  # king_activity
+1.250430  # doubled_pawns
+0.000000  # passed_pawns
+0.995866  # centre_control

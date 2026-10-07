@@ -1,0 +1,81 @@
+==========================================================================
+EXPERIMENT: GA-TUNED ENGINE  vs  UNTUNED BASELINE
+==========================================================================
+games        : 50  (25 openings, each played twice with colours reversed)
+search depth : 3 (identical for both sides)
+move cap     : 120 plies, then adjudicated on material
+cpu workers  : 10
+
+feature             tuned baseline
+material            3.000    1.000
+mobility            1.942    1.000
+king_safety         0.440    1.000
+king_activity       0.849    0.500
+doubled_pawns       1.250    0.500
+passed_pawns        0.000    1.000
+centre_control      0.996    0.500
+--------------------------------------------------------------------------
+game   1  Start position         tuned as white  win     87 plies  checkmate
+game   2  Start position         tuned as black  win     78 plies  checkmate
+game   3  Open Game              tuned as white  draw    50 plies  threefold_repetition
+game   4  Open Game              tuned as black  loss   115 plies  checkmate
+game   5  Ruy Lopez              tuned as white  win     44 plies  checkmate
+game   6  Ruy Lopez              tuned as black  loss    62 plies  checkmate
+game   7  Italian Game           tuned as white  win     64 plies  checkmate
+game   8  Italian Game           tuned as black  loss   114 plies  checkmate
+game   9  Petrov Defence         tuned as white  loss   120 plies  adjudicated
+game  10  Petrov Defence         tuned as black  draw    87 plies  threefold_repetition
+game  11  Sicilian               tuned as white  draw   114 plies  threefold_repetition
+game  12  Sicilian               tuned as black  draw   115 plies  threefold_repetition
+game  13  Sicilian, d6           tuned as white  draw    70 plies  threefold_repetition
+game  14  Sicilian, d6           tuned as black  win     98 plies  checkmate
+game  15  Sicilian, Nc6          tuned as white  loss    66 plies  checkmate
+game  16  Sicilian, Nc6          tuned as black  win    120 plies  adjudicated
+game  17  French Defence         tuned as white  draw   120 plies  adjudicated
+game  18  French Defence         tuned as black  win     94 plies  checkmate
+game  19  Caro-Kann              tuned as white  loss    66 plies  checkmate
+game  20  Caro-Kann              tuned as black  win    120 plies  adjudicated
+game  21  Scandinavian           tuned as white  draw    89 plies  threefold_repetition
+game  22  Scandinavian           tuned as black  win    100 plies  checkmate
+game  23  Alekhine Defence       tuned as white  win    120 plies  adjudicated
+game  24  Alekhine Defence       tuned as black  win     70 plies  checkmate
+game  25  Pirc Defence           tuned as white  draw    76 plies  threefold_repetition
+game  26  Pirc Defence           tuned as black  win     74 plies  checkmate
+game  27  Modern Defence         tuned as white  draw    83 plies  threefold_repetition
+game  28  Modern Defence         tuned as black  loss   115 plies  checkmate
+game  29  Queen's Gambit         tuned as white  loss   109 plies  checkmate
+game  30  Queen's Gambit         tuned as black  draw    90 plies  threefold_repetition
+game  31  QGD                    tuned as white  win     93 plies  checkmate
+game  32  QGD                    tuned as black  draw    97 plies  threefold_repetition
+game  33  Slav Defence           tuned as white  win     87 plies  checkmate
+game  34  Slav Defence           tuned as black  win     60 plies  checkmate
+game  35  Indian Defence         tuned as white  draw    95 plies  threefold_repetition
+game  36  Indian Defence         tuned as black  win     58 plies  checkmate
+game  37  King's Indian          tuned as white  win    120 plies  adjudicated
+game  38  King's Indian          tuned as black  win     88 plies  checkmate
+game  39  Queen's Indian         tuned as white  win    120 plies  adjudicated
+game  40  Queen's Indian         tuned as black  draw    91 plies  threefold_repetition
+game  41  Dutch Defence          tuned as white  loss    52 plies  checkmate
+game  42  Dutch Defence          tuned as black  win     94 plies  checkmate
+game  43  Symmetrical d4/Nf3     tuned as white  win    109 plies  checkmate
+game  44  Symmetrical d4/Nf3     tuned as black  loss    61 plies  checkmate
+game  45  English Opening        tuned as white  win    103 plies  checkmate
+game  46  English Opening        tuned as black  win    120 plies  adjudicated
+game  47  Symmetrical English    tuned as white  loss   120 plies  adjudicated
+game  48  Symmetrical English    tuned as black  draw   115 plies  threefold_repetition
+game  49  Reti Opening           tuned as white  loss    44 plies  checkmate
+game  50  Reti Opening           tuned as black  loss    69 plies  checkmate
+--------------------------------------------------------------------------
+RESULT  (from the GA-tuned engine's point of view)
+--------------------------------------------------------------------------
+games played                    50
+wins                            23
+draws                           14
+losses                          13
+score                    30.0 / 50
+score rate                   60.0%
+approx. Elo gain             +70.4
+
+total time: 265.2 min (318.3s per game average)
+
+The GA-tuned weights outperform the untuned baseline.

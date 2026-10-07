@@ -1,0 +1,118 @@
+======================================================================
+MODULE 5 -- GENETIC ALGORITHM: tuning the evaluation weights
+======================================================================
+fitness mode  : games
+population    : 12
+generations   : 6
+selection     : tournament (size 3)
+crossover     : BLX-0.5 at rate 0.8
+mutation      : Gaussian rate 0.15 strength 0.25
+elitism       : 2
+search depth  : 2 (low, for training speed)
+games per ind.: 4 (2 openings x 2 colours vs the baseline)
+cpu workers   : 8
+baseline      : [1.000, 1.000, 1.000, 0.500, 0.500, 1.000, 0.500]
+----------------------------------------------------------------------
+  gen  1  individual  1/12  fitness 0.4750
+  gen  1  individual  2/12  fitness 0.1550
+  gen  1  individual  3/12  fitness 0.8000
+  gen  1  individual  4/12  fitness 0.2350
+  gen  1  individual  5/12  fitness 0.8400
+  gen  1  individual  6/12  fitness 0.6400
+  gen  1  individual  7/12  fitness 0.3250
+  gen  1  individual  8/12  fitness 0.0650
+  gen  1  individual  9/12  fitness 0.1500
+  gen  1  individual 10/12  fitness 0.5500
+  gen  1  individual 11/12  fitness 0.0250
+  gen  1  individual 12/12  fitness 0.5000
+GENERATION  1/6   best 0.8400  average 0.3967  (612.7s)  [2.542, 1.811, 2.421, 2.189, 1.609, 2.919, 1.136]
+  gen  2  individual  1/12  fitness 0.6600
+  gen  2  individual  2/12  fitness 0.5050
+  gen  2  individual  3/12  fitness 0.3500
+  gen  2  individual  4/12  fitness 0.8450
+  gen  2  individual  5/12  fitness 0.5050
+  gen  2  individual  6/12  fitness 0.7000
+  gen  2  individual  7/12  fitness 0.6850
+  gen  2  individual  8/12  fitness 0.6600
+  gen  2  individual  9/12  fitness 0.6050
+  gen  2  individual 10/12  fitness 0.7600
+  gen  2  individual 11/12  fitness 0.1750
+  gen  2  individual 12/12  fitness 0.5050
+GENERATION  2/6   best 0.8450  average 0.5796  (330.4s)  [2.999, 0.578, 1.738, 0.000, 1.337, 1.661, 0.667]
+  gen  3  individual  1/12  fitness 0.2400
+  gen  3  individual  2/12  fitness 0.5000
+  gen  3  individual  3/12  fitness 0.4250
+  gen  3  individual  4/12  fitness 0.5000
+  gen  3  individual  5/12  fitness 0.6900
+  gen  3  individual  6/12  fitness 0.7850
+  gen  3  individual  7/12  fitness 0.0750
+  gen  3  individual  8/12  fitness 0.5250
+  gen  3  individual  9/12  fitness 0.2500
+  gen  3  individual 10/12  fitness 0.4050
+  gen  3  individual 11/12  fitness 0.3750
+  gen  3  individual 12/12  fitness 0.6650
+GENERATION  3/6   best 0.7850  average 0.4529  (299.8s)  [3.000, 1.504, 0.338, 0.905, 1.553, 0.001, 1.326]
+  gen  4  individual  1/12  fitness 0.5400
+  gen  4  individual  2/12  fitness 0.5000
+  gen  4  individual  3/12  fitness -0.1000
+  gen  4  individual  4/12  fitness 0.4800
+  gen  4  individual  5/12  fitness 0.8100
+  gen  4  individual  6/12  fitness 0.8450
+  gen  4  individual  7/12  fitness 0.4250
+  gen  4  individual  8/12  fitness 0.4250
+  gen  4  individual  9/12  fitness 0.9250
+  gen  4  individual 10/12  fitness 0.3000
+  gen  4  individual 11/12  fitness 0.5150
+  gen  4  individual 12/12  fitness 0.2150
+GENERATION  4/6   best 0.9250  average 0.4900  (411.3s)  [2.791, 0.155, 1.379, 1.180, 1.042, 2.592, 0.661]
+  gen  5  individual  1/12  fitness 0.3650
+  gen  5  individual  2/12  fitness 0.9750
+  gen  5  individual  3/12  fitness 0.7250
+  gen  5  individual  4/12  fitness 0.7250
+  gen  5  individual  5/12  fitness 0.6950
+  gen  5  individual  6/12  fitness 0.3700
+  gen  5  individual  7/12  fitness 0.6750
+  gen  5  individual  8/12  fitness 0.6750
+  gen  5  individual  9/12  fitness 0.3650
+  gen  5  individual 10/12  fitness 0.3650
+  gen  5  individual 11/12  fitness 0.7750
+  gen  5  individual 12/12  fitness 0.4850
+GENERATION  5/6   best 0.9750  average 0.5996  (412.8s)  [3.000, 1.942, 0.440, 0.849, 1.250, 0.000, 0.996]
+  gen  6  individual  1/12  fitness 0.9700
+  gen  6  individual  2/12  fitness 0.6750
+  gen  6  individual  3/12  fitness 0.7600
+  gen  6  individual  4/12  fitness 0.6450
+  gen  6  individual  5/12  fitness 0.4150
+  gen  6  individual  6/12  fitness 0.3400
+  gen  6  individual  7/12  fitness 0.9550
+  gen  6  individual  8/12  fitness 0.6750
+  gen  6  individual  9/12  fitness 0.6500
+  gen  6  individual 10/12  fitness 0.4750
+  gen  6  individual 11/12  fitness 0.7600
+  gen  6  individual 12/12  fitness 0.8200
+GENERATION  6/6   best 0.9700  average 0.6783  (431.7s)  [3.000, 1.942, 0.440, 0.849, 1.250, 0.000, 0.996]
+----------------------------------------------------------------------
+TRAINING FINISHED in 2498.6s (41.6 min)
+best fitness  : 0.9750
+tuned weights :
+    material         3.0000
+    mobility         1.9421
+    king_safety      0.4399
+    king_activity    0.8487
+    doubled_pawns    1.2504
+    passed_pawns     0.0000
+    centre_control   0.9959
+
+wrote best_weights.txt
+wrote ga_convergence.csv (best + average fitness per generation, for the plot)
+
+Convergence:
+  gen   best      average
+    1   0.8400    0.3967
+    2   0.8450    0.5796
+    3   0.7850    0.4529
+    4   0.9250    0.4900
+    5   0.9750    0.5996
+    6   0.9700    0.6783
+
+Next step:  python compare.py   (tuned vs untuned -- the headline result)

@@ -1,0 +1,83 @@
+==========================================================================
+EXPERIMENT: GA-TUNED ENGINE  vs  UNTUNED BASELINE
+==========================================================================
+games        : 50  (25 openings, each played twice with colours reversed)
+search depth : 3 (identical for both sides)
+move cap     : 120 plies, then adjudicated on material
+cpu workers  : 10
+
+feature             tuned baseline
+material            3.000    1.000
+mobility            1.942    1.000
+king_safety         0.440    1.000
+king_activity       0.849    0.500
+doubled_pawns       1.250    0.500
+passed_pawns        0.000    1.000
+centre_control      0.996    0.500
+--------------------------------------------------------------------------
+game   1/50   Start position         tuned as white  WIN    running:  1W  0D  0L  score 1.0/1    (748s, 87 plies, checkmate)
+game   2/50   Start position         tuned as black  WIN    running:  2W  0D  0L  score 2.0/2    (572s, 78 plies, checkmate)
+game   3/50   Open Game              tuned as white  DRAW   running:  2W  1D  0L  score 2.5/3    (523s, 50 plies, threefold_repetition)
+game   4/50   Open Game              tuned as black  LOSS   running:  2W  1D  1L  score 2.5/4    (731s, 115 plies, checkmate)
+game   5/50   Ruy Lopez              tuned as white  WIN    running:  3W  1D  1L  score 3.5/5    (614s, 44 plies, checkmate)
+game   6/50   Ruy Lopez              tuned as black  LOSS   running:  3W  1D  2L  score 3.5/6    (958s, 62 plies, checkmate)
+game   7/50   Italian Game           tuned as white  WIN    running:  4W  1D  2L  score 4.5/7    (587s, 64 plies, checkmate)
+game   8/50   Italian Game           tuned as black  LOSS   running:  4W  1D  3L  score 4.5/8    (715s, 114 plies, checkmate)
+game   9/50   Petrov Defence         tuned as white  LOSS   running:  4W  1D  4L  score 4.5/9    (760s, 120 plies, adjudicated)
+game  10/50   Petrov Defence         tuned as black  DRAW   running:  4W  2D  4L  score 5.0/10   (704s, 87 plies, threefold_repetition)
+game  11/50   Sicilian               tuned as white  DRAW   running:  4W  3D  4L  score 5.5/11   (465s, 114 plies, threefold_repetition)
+game  12/50   Sicilian               tuned as black  DRAW   running:  4W  4D  4L  score 6.0/12   (1200s, 115 plies, threefold_repetition)
+game  13/50   Sicilian, d6           tuned as white  DRAW   running:  4W  5D  4L  score 6.5/13   (560s, 70 plies, threefold_repetition)
+game  14/50   Sicilian, d6           tuned as black  WIN    running:  5W  5D  4L  score 7.5/14   (780s, 98 plies, checkmate)
+game  15/50   Sicilian, Nc6          tuned as white  LOSS   running:  5W  5D  5L  score 7.5/15   (1348s, 66 plies, checkmate)
+game  16/50   Sicilian, Nc6          tuned as black  WIN    running:  6W  5D  5L  score 8.5/16   (1080s, 120 plies, adjudicated)
+game  17/50   French Defence         tuned as white  DRAW   running:  6W  6D  5L  score 9.0/17   (1054s, 120 plies, adjudicated)
+game  18/50   French Defence         tuned as black  WIN    running:  7W  6D  5L  score 10.0/18   (572s, 94 plies, checkmate)
+game  19/50   Caro-Kann              tuned as white  LOSS   running:  7W  6D  6L  score 10.0/19   (515s, 66 plies, checkmate)
+game  20/50   Caro-Kann              tuned as black  WIN    running:  8W  6D  6L  score 11.0/20   (752s, 120 plies, adjudicated)
+game  21/50   Scandinavian           tuned as white  DRAW   running:  8W  7D  6L  score 11.5/21   (603s, 89 plies, threefold_repetition)
+game  22/50   Scandinavian           tuned as black  WIN    running:  9W  7D  6L  score 12.5/22   (593s, 100 plies, checkmate)
+game  23/50   Alekhine Defence       tuned as white  WIN    running: 10W  7D  6L  score 13.5/23   (485s, 120 plies, adjudicated)
+game  24/50   Alekhine Defence       tuned as black  WIN    running: 11W  7D  6L  score 14.5/24   (815s, 70 plies, checkmate)
+game  25/50   Pirc Defence           tuned as white  DRAW   running: 11W  8D  6L  score 15.0/25   (845s, 76 plies, threefold_repetition)
+game  26/50   Pirc Defence           tuned as black  WIN    running: 12W  8D  6L  score 16.0/26   (502s, 74 plies, checkmate)
+game  27/50   Modern Defence         tuned as white  DRAW   running: 12W  9D  6L  score 16.5/27   (645s, 83 plies, threefold_repetition)
+game  28/50   Modern Defence         tuned as black  LOSS   running: 12W  9D  7L  score 16.5/28   (313s, 115 plies, checkmate)
+game  29/50   Queen's Gambit         tuned as white  LOSS   running: 12W  9D  8L  score 16.5/29   (623s, 109 plies, checkmate)
+game  30/50   Queen's Gambit         tuned as black  DRAW   running: 12W 10D  8L  score 17.0/30   (385s, 90 plies, threefold_repetition)
+game  31/50   QGD                    tuned as white  WIN    running: 13W 10D  8L  score 18.0/31   (515s, 93 plies, checkmate)
+game  32/50   QGD                    tuned as black  DRAW   running: 13W 11D  8L  score 18.5/32   (462s, 97 plies, threefold_repetition)
+game  33/50   Slav Defence           tuned as white  WIN    running: 14W 11D  8L  score 19.5/33   (13757s, 87 plies, checkmate)
+game  34/50   Slav Defence           tuned as black  WIN    running: 15W 11D  8L  score 20.5/34   (468s, 60 plies, checkmate)
+game  35/50   Indian Defence         tuned as white  DRAW   running: 15W 12D  8L  score 21.0/35   (713s, 95 plies, threefold_repetition)
+game  36/50   Indian Defence         tuned as black  WIN    running: 16W 12D  8L  score 22.0/36   (394s, 58 plies, checkmate)
+game  37/50   King's Indian          tuned as white  WIN    running: 17W 12D  8L  score 23.0/37   (620s, 120 plies, adjudicated)
+game  38/50   King's Indian          tuned as black  WIN    running: 18W 12D  8L  score 24.0/38   (476s, 88 plies, checkmate)
+game  39/50   Queen's Indian         tuned as white  WIN    running: 19W 12D  8L  score 25.0/39   (892s, 120 plies, adjudicated)
+game  40/50   Queen's Indian         tuned as black  DRAW   running: 19W 13D  8L  score 25.5/40   (13163s, 91 plies, threefold_repetition)
+game  41/50   Dutch Defence          tuned as white  LOSS   running: 19W 13D  9L  score 25.5/41   (13184s, 52 plies, checkmate)
+game  42/50   Dutch Defence          tuned as black  WIN    running: 20W 13D  9L  score 26.5/42   (13287s, 94 plies, checkmate)
+game  43/50   Symmetrical d4/Nf3     tuned as white  WIN    running: 21W 13D  9L  score 27.5/43   (13391s, 109 plies, checkmate)
+game  44/50   Symmetrical d4/Nf3     tuned as black  LOSS   running: 21W 13D 10L  score 27.5/44   (13034s, 61 plies, checkmate)
+game  45/50   English Opening        tuned as white  WIN    running: 22W 13D 10L  score 28.5/45   (12844s, 103 plies, checkmate)
+game  46/50   English Opening        tuned as black  WIN    running: 23W 13D 10L  score 29.5/46   (12851s, 120 plies, adjudicated)
+game  47/50   Symmetrical English    tuned as white  LOSS   running: 23W 13D 11L  score 29.5/47   (12692s, 120 plies, adjudicated)
+game  48/50   Symmetrical English    tuned as black  DRAW   running: 23W 14D 11L  score 30.0/48   (12555s, 115 plies, threefold_repetition)
+game  49/50   Reti Opening           tuned as white  LOSS   running: 23W 14D 12L  score 30.0/49   (367s, 44 plies, checkmate)
+game  50/50   Reti Opening           tuned as black  LOSS   running: 23W 14D 13L  score 30.0/50   (320s, 69 plies, checkmate)
+--------------------------------------------------------------------------
+RESULT  (from the GA-tuned engine's point of view)
+--------------------------------------------------------------------------
+games played                    50
+wins                            23
+draws                           14
+losses                          13
+score                    30.0 / 50
+score rate                   60.0%
+approx. Elo gain             +70.4
+
+total time: 265.2 min (318.3s per game average)
+
+The GA-tuned weights outperform the untuned baseline.
+
+wrote results.txt and results.csv
