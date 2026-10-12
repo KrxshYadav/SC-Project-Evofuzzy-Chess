@@ -288,7 +288,7 @@ def main():
         summary.append("Dead level -- the GA has not separated itself from the "
                        "baseline yet.  Train for more generations.")
     else:
-        summary.append("The baseline is still ahead.  Per CLAUDE.md: train for "
+        summary.append("The baseline is still ahead.  Per project documentation: train for "
                        "more generations, the baseline weights are decent.")
     summary_text = "\n".join(summary)
     print(summary_text, flush=True)

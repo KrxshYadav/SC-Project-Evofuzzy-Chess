@@ -525,6 +525,199 @@ def choose_move(board, weights, depth=3, use_fuzzy=True, use_quiescence=True):
     return move
 
 
+def evaluate_all_moves(board, weights, depth=2, use_fuzzy=True, use_quiescence=True):
+    """Score every legal move in the position.
+    Returns a list of dicts sorted from best to worst move:
+      [{"move": Move, "uci": str, "san": str, "score": float, "white_score": float}, ...]
+    score is from the side-to-move's perspective; white_score is from White's perspective.
+    """
+    stats = SearchStats()
+    scored = []
+    is_white = (board.turn == chess.WHITE)
+    for move in ordered_moves(board):
+        san = board.san(move)
+        board.push(move)
+        if depth <= 1:
+            if use_quiescence:
+                score = -quiescence(board, -math.inf, math.inf, weights, 1, stats, use_fuzzy)
+            else:
+                score = -evaluate(board, weights, use_fuzzy)
+        else:
+            score = -negamax(board, depth - 1, -math.inf, math.inf, weights, 1, stats,
+                             use_fuzzy, use_quiescence)
+        board.pop()
+        white_score = score if is_white else -score
+        scored.append({
+            "move": move,
+            "uci": move.uci(),
+            "san": san,
+            "score": score,
+            "white_score": white_score,
+        })
+    scored.sort(key=lambda item: item["score"], reverse=True)
+    return scored
+
+
+def get_top_moves(board, weights, n=3, depth=2, use_fuzzy=True, use_quiescence=True):
+    """Returns the top `n` legal moves and their evaluations."""
+    all_moves = evaluate_all_moves(board, weights, depth, use_fuzzy, use_quiescence)
+    return all_moves[:n]
+
+
+def classify_move(best_score, move_score):
+    """
+    Classify a move compared to the engine's best move.
+    best_score: score of the top move (from player's perspective)
+    move_score: score of the chosen move (from player's perspective)
+    Returns a dict with badge, label, icon, delta, description.
+    """
+    if best_score >= MATE_SCORE - 100:
+        if move_score >= MATE_SCORE - 100:
+            return {
+                "badge": "best",
+                "label": "Best Move",
+                "icon": "⭐",
+                "delta": 0.0,
+                "description": "Maintains checkmate!",
+            }
+        else:
+            return {
+                "badge": "blunder",
+                "label": "Blunder",
+                "icon": "🔴",
+                "delta": round(best_score - move_score, 2),
+                "description": "Missed checkmate!",
+            }
+
+    delta = max(0.0, round(best_score - move_score, 2))
+
+    if delta <= 0.05:
+        return {
+            "badge": "best",
+            "label": "Best Move",
+            "icon": "⭐",
+            "delta": delta,
+            "description": "Best move in this position.",
+        }
+    elif delta <= 0.25:
+        return {
+            "badge": "excellent",
+            "label": "Excellent",
+            "icon": "🟢",
+            "delta": delta,
+            "description": "Almost as strong as the best move.",
+        }
+    elif delta <= 0.55:
+        return {
+            "badge": "good",
+            "label": "Good",
+            "icon": "👍",
+            "delta": delta,
+            "description": "Solid practical move.",
+        }
+    elif delta <= 1.20:
+        return {
+            "badge": "inaccuracy",
+            "label": "Inaccuracy",
+            "icon": "🟡",
+            "delta": delta,
+            "description": "A slight inaccuracy that gives up some advantage.",
+        }
+    elif delta <= 2.20:
+        return {
+            "badge": "mistake",
+            "label": "Mistake",
+            "icon": "🟠",
+            "delta": delta,
+            "description": "A mistake that significantly worsens the position.",
+        }
+    else:
+        return {
+            "badge": "blunder",
+            "label": "Blunder",
+            "icon": "🔴",
+            "delta": delta,
+            "description": "A major blunder that loses material or advantage.",
+        }
+
+
+def get_evaluation_summary(board, weights, depth=2, use_fuzzy=True):
+    """
+    Computes comprehensive evaluation details:
+    - white_score: float (+ = White advantage)
+    - side_score: float (+ = side-to-move advantage)
+    - leader: "White", "Black", or "Equal"
+    - leading_text: e.g. "White is leading (+1.25)"
+    - eval_percent: 0-100% (for UI eval bar, >50% = White)
+    - ascii_bar: e.g. "[████████████░░░░░░░░]"
+    - phase: (opening, middlegame, endgame)
+    - phase_percents: {"opening": 60, "middlegame": 40, "endgame": 0}
+    - features: dict of feature names and values
+    """
+    if board.is_checkmate():
+        if board.turn == chess.WHITE:
+            white_score = -MATE_SCORE
+            side_score = -MATE_SCORE
+            leader = "Black"
+            leading_text = "Black wins by checkmate!"
+            eval_percent = 0.0
+        else:
+            white_score = MATE_SCORE
+            side_score = -MATE_SCORE
+            leader = "White"
+            leading_text = "White wins by checkmate!"
+            eval_percent = 100.0
+    elif (board.is_stalemate() or board.is_insufficient_material() or
+          board.is_fifty_moves() or board.is_repetition(3)):
+        white_score = 0.0
+        side_score = 0.0
+        leader = "Equal"
+        leading_text = "Drawn position"
+        eval_percent = 50.0
+    else:
+        white_score = evaluate_white(board, weights, use_fuzzy)
+        side_score = white_score if board.turn == chess.WHITE else -white_score
+
+        eval_percent = round(50.0 + 50.0 * math.tanh(white_score / 5.0), 1)
+        eval_percent = max(1.0, min(99.0, eval_percent))
+
+        if abs(white_score) < 0.20:
+            leader = "Equal"
+            leading_text = "Equal position (0.00)"
+        elif white_score > 0:
+            leader = "White"
+            leading_text = f"White is leading (+{white_score:.2f})"
+        else:
+            leader = "Black"
+            leading_text = f"Black is leading (+{abs(white_score):.2f})"
+
+    white_blocks = int(round((eval_percent / 100.0) * 20))
+    white_blocks = max(0, min(20, white_blocks))
+    black_blocks = 20 - white_blocks
+    ascii_bar = "[" + "#" * white_blocks + "-" * black_blocks + "]"
+
+    op, mid, end = game_phase(board)
+    raw_features = extract_features(board)
+    features_dict = {name: round(val, 3) for name, val in zip(FEATURE_NAMES, raw_features)}
+
+    return {
+        "white_score": round(white_score, 2),
+        "side_score": round(side_score, 2),
+        "leader": leader,
+        "leading_text": leading_text,
+        "eval_percent": eval_percent,
+        "ascii_bar": ascii_bar,
+        "phase": (op, mid, end),
+        "phase_percents": {
+            "opening": round(op * 100),
+            "middlegame": round(mid * 100),
+            "endgame": round(end * 100),
+        },
+        "features": features_dict,
+    }
+
+
+
 # ---------------------------------------------------------------------------
 # Weight file helpers (train_ga.py writes it; play.py and compare.py read it)
 # ---------------------------------------------------------------------------
@@ -598,7 +791,7 @@ def board_to_text(board, unicode_pieces=False, flipped=False):
 
 
 if __name__ == "__main__":
-    # Self-check: prints the fuzzy behaviour quoted in CLAUDE.md plus a sample
+    # Self-check: prints the fuzzy behaviour quoted in README.md plus a sample
     # evaluation, so this file can be sanity-checked on its own.
     print("Feature names :", FEATURE_NAMES)
     print("Baseline      :", BASELINE_WEIGHTS)

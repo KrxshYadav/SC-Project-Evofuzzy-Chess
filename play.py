@@ -14,13 +14,22 @@ Commands:
     moves   list legal moves     eval    show features, fuzzy phase and score
     fen     print the FEN        undo    take back your last move
     flip    flip the board view  resign  end the game
+    mode    toggle practice/learning mode
     quit    exit
+
+Modes:
+    Learning: Engine rates your move (Best, Excellent, Good, Inaccuracy, Mistake,
+              Blunder) and gives the Top 3 recommended moves.
+    Practice: Pure play against the engine without move hints.
 
 Run:  python play.py
 """
 
 import sys
 import time
+
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
 import chess
 
@@ -65,21 +74,39 @@ def ask_int(prompt, low, high, default):
         print("Please choose a number between {} and {}.".format(low, high))
 
 
-def show_position(board, unicode_pieces, flipped, weights, human_msg="", engine_msg=""):
+def show_position(board, unicode_pieces, flipped, weights, human_msg="", engine_msg="",
+                  mode="practice", top_moves=None, analysis_msg=""):
     print()
     board_lines = engine.board_to_text(board, unicode_pieces, flipped).split('\n')
-    opening, middlegame, endgame = engine.game_phase(board)
+    summary = engine.get_evaluation_summary(board, weights)
+    
+    mode_str = "LEARNING (Tips & Analysis ON)" if mode == "learning" else "PRACTICE (No Tips)"
     
     info_lines = [
         "",
-        "    Move {}".format(board.fullmove_number),
-        "    Material on board: {:.0f}/78".format(engine.total_material(board)),
-        "    Fuzzy phase: Opening {:.0f}% | Middlegame {:.0f}% | Endgame {:.0f}%".format(100 * opening, 100 * middlegame, 100 * endgame),
-        "    Static evaluation: {:+.2f} (+ = White better)".format(engine.evaluate_white(board, weights)),
+        "    [Mode: {}]".format(mode_str),
+        "    Move {}  |  Material: {:.0f}/78".format(board.fullmove_number, engine.total_material(board)),
+        "    Fuzzy: Opening {:.0f}% | Middlegame {:.0f}% | Endgame {:.0f}%".format(
+            summary["phase_percents"]["opening"],
+            summary["phase_percents"]["middlegame"],
+            summary["phase_percents"]["endgame"]
+        ),
+        "    Eval: {:+.2f}  {}".format(summary["white_score"], summary["ascii_bar"]),
+        "    Status: {}".format(summary["leading_text"]),
         "",
-        "    " + human_msg if human_msg else "",
-        "    " + engine_msg if engine_msg else "",
     ]
+
+    if mode == "learning" and top_moves:
+        top_str = " | ".join("{}. {} ({:+.2f})".format(i + 1, m["san"], m["score"])
+                             for i, m in enumerate(top_moves[:3]))
+        info_lines.append("    Top 3 Moves: " + top_str)
+
+    if analysis_msg:
+        info_lines.append("    " + analysis_msg)
+    if human_msg:
+        info_lines.append("    " + human_msg)
+    if engine_msg:
+        info_lines.append("    " + engine_msg)
     
     for i in range(max(len(board_lines), len(info_lines))):
         left = board_lines[i] if i < len(board_lines) else " " * 30
@@ -176,6 +203,9 @@ def main():
         print("    {:<16} {:.3f}".format(name, value))
     print()
 
+    mode_choice = ask("Select mode - [l]earning or [p]ractice? [l]: ", ("l", "p"), "l")
+    mode = "learning" if mode_choice == "l" else "practice"
+
     colour_choice = ask("Play as [w]hite or [b]lack? [w]: ", ("w", "b"), "w")
     human_colour = chess.WHITE if colour_choice == "w" else chess.BLACK
     depth = ask_int("Search depth 1-4 [{}]: ".format(DEFAULT_DEPTH), 1, 4,
@@ -187,14 +217,23 @@ def main():
     flipped = (human_colour == chess.BLACK)
 
     print()
-    print("You are {}.  Engine depth {}.  Type 'help' for commands."
-          .format("White" if human_colour == chess.WHITE else "Black", depth))
+    print("You are {}.  Engine depth {}.  Mode: {}.".format(
+        "White" if human_colour == chess.WHITE else "Black", depth, mode.upper()))
+    print("Type 'help' for commands, 'mode' to switch learning/practice.")
 
     human_msg = ""
     engine_msg = ""
+    analysis_msg = ""
+    top_moves = None
 
     while not board.is_game_over(claim_draw=True):
-        show_position(board, unicode_pieces, flipped, weights, human_msg, engine_msg)
+        if board.turn == human_colour and mode == "learning":
+            top_moves = engine.get_top_moves(board, weights, n=3, depth=min(2, depth))
+        else:
+            top_moves = None
+
+        show_position(board, unicode_pieces, flipped, weights, human_msg, engine_msg,
+                      mode=mode, top_moves=top_moves, analysis_msg=analysis_msg)
 
         if board.turn == human_colour:
             # ---------------- human turn ----------------
@@ -218,6 +257,11 @@ def main():
                 continue
             if command == "board":
                 continue
+            if command == "mode":
+                mode = "practice" if mode == "learning" else "learning"
+                human_msg = "Switched to {} mode.".format(mode.upper())
+                analysis_msg = ""
+                continue
             if command == "fen":
                 print(board.fen())
                 continue
@@ -236,6 +280,7 @@ def main():
                     board.pop()      # your move
                     human_msg = "Took back one full move."
                     engine_msg = ""
+                    analysis_msg = ""
                 else:
                     human_msg = "Nothing to take back."
                 continue
@@ -245,12 +290,28 @@ def main():
                 human_msg = "'{}' is not a legal move. Type 'moves' for help.".format(text)
                 continue
             
-            human_msg = "You played: {}".format(board.san(move))
+            san = board.san(move)
+            if mode == "learning" and top_moves:
+                all_moves = engine.evaluate_all_moves(board, weights, depth=min(2, depth))
+                best_info = all_moves[0] if all_moves else None
+                player_info = next((m for m in all_moves if m["move"] == move), None)
+                if best_info and player_info:
+                    eval_res = engine.classify_move(best_info["score"], player_info["score"])
+                    analysis_msg = "Move Analysis: {} {} (score {:+.2f}, diff -{:.2f})".format(
+                        eval_res["label"], eval_res["icon"], player_info["score"], eval_res["delta"]
+                    )
+                    if eval_res["badge"] not in ("best", "excellent") and best_info["move"] != move:
+                        analysis_msg += " | Best was: {}".format(best_info["san"])
+                else:
+                    analysis_msg = ""
+            else:
+                analysis_msg = ""
+
+            human_msg = "You played: {}".format(san)
             board.push(move)
 
         else:
             # ---------------- engine turn ----------------
-            # Clear previous messages when engine thinks
             human_msg = ""
             print("engine thinking (depth {})...".format(depth), end="\r", flush=True)
             started = time.time()
@@ -261,11 +322,11 @@ def main():
             san = board.san(move)
             board.push(move)
             
-            # Pad the string with spaces to overwrite the "engine thinking" line perfectly
             engine_msg = "Engine plays: {}  (score {:+.2f}, {:.1f}s)".format(san, score, elapsed)
             print(" " * 50, end="\r", flush=True)
 
-    show_position(board, unicode_pieces, flipped, weights, human_msg, engine_msg)
+    show_position(board, unicode_pieces, flipped, weights, human_msg, engine_msg,
+                  mode=mode, top_moves=None, analysis_msg=analysis_msg)
     announce_result(board, human_colour)
 
 

@@ -1,4 +1,4 @@
-# CLAUDE.md — Soft Computing Chess Project
+# README.md — Soft Computing Chess Project
 
 ## What this project is
 
@@ -109,9 +109,10 @@ material → 30/70 opening/middle; move 45 with 12 material → 100% endgame.
 
 | File | Contains | Status |
 |---|---|---|
-| `engine.py` | Modules 1, 2, 3, 4, 6 | working, run end-to-end |
+| `app.py` | Chess.com-style Web UI (Flask, local, no DB/login) | working, browser UI |
+| `engine.py` | Modules 1, 2, 3, 4, 6 + move evaluation | working, run end-to-end |
 | `train_ga.py` | Module 5 (the GA) | working, full run completed |
-| `play.py` | Terminal interface | working, played through |
+| `play.py` | Terminal interface (learning & practice modes) | working, played through |
 | `compare.py` | Tuned vs untuned experiment | working, 50-game run completed |
 | `make_positions.py` | Lichess puzzles -> `positions.csv` | working, 20k positions built |
 | `bench_stockfish.py` | Optional external benchmark | working (needs the Stockfish exe) |
@@ -138,11 +139,12 @@ the engine is deterministic, so the results are identical either way. Set
 ## Commands
 
 ```
-pip install chess          # the only dependency
+pip install chess flask    # dependencies (chess + local flask UI)
 
 python engine.py           # self-check: fuzzy phases + a sample evaluation
 python train_ga.py         # train -- writes best_weights.txt + ga_convergence.csv
-python play.py             # play against it
+python play.py             # play in terminal (learning & practice modes)
+python app.py              # play in Chess.com-style local web UI (auto-opens browser)
 python compare.py          # the experiment for the report
 
 # optional extras

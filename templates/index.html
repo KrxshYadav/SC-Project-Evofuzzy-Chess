@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Soft Computing Chess - GA & Fuzzy Engine</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+  <!-- Top App Header -->
+  <header>
+    <div class="logo-area">
+      <div class="logo-icon">♟️</div>
+      <div>
+        <div class="logo-title">Soft Computing Chess</div>
+        <div class="logo-sub">Genetic Algorithm & Mamdani Fuzzy Engine</div>
+      </div>
+    </div>
+    <div class="header-meta">
+      <a href="https://database.lichess.org/" target="_blank" rel="noopener noreferrer" class="status-pill dataset-pill" title="Trained on Lichess Open Database (Click to view official DB)">📊 Dataset: database.lichess.org ↗</a>
+      <div class="status-pill">Weights: <span id="headerWeightsType">GA-Tuned</span></div>
+      <div class="status-pill">Engine Depth: <span id="headerDepth">3</span></div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <div class="app-container">
+
+    <!-- Board & Eval Bar Area -->
+    <div class="game-section">
+      <!-- Chess.com style Vertical Evaluation Bar -->
+      <div class="eval-bar-wrapper">
+        <div class="eval-bar" id="evalBar">
+          <div class="eval-fill-white" id="evalFillWhite" style="height: 50%;">
+            <span class="eval-score-text" id="evalScoreWhite">0.0</span>
+          </div>
+          <span class="eval-score-text black-lead" id="evalScoreBlack" style="display: none;">0.0</span>
+        </div>
+      </div>
+
+      <!-- Chessboard Area -->
+      <div class="board-container">
+        <!-- Top Player (Engine) -->
+        <div class="player-tag" id="topPlayerTag">
+          <div class="player-info">
+            <span id="topPlayerName">🤖 Soft Computing AI</span>
+            <span class="player-badge" id="topPlayerRole">AI</span>
+          </div>
+        </div>
+
+        <!-- 8x8 Board Grid with Blurred Game Over Overlay -->
+        <div class="chessboard-wrapper">
+          <div class="chessboard" id="chessboard"></div>
+
+          <!-- Frosted Glass Blur Game Over Overlay -->
+          <div class="game-over-overlay" id="gameOverOverlay" style="display: none;">
+            <div class="game-over-modal">
+              <div class="game-over-icon" id="gameOverIcon">🏆</div>
+              <div class="game-over-title" id="gameOverTitle">Checkmate!</div>
+              <div class="game-over-sub" id="gameOverSub">White wins the game</div>
+              <div class="game-over-actions">
+                <button class="modal-action-btn primary" id="btnGameOverNewGame">🔄 Play Again</button>
+                <button class="modal-action-btn secondary" id="btnGameOverReview">👁️ Review Board</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Player (Human) -->
+        <div class="player-tag active" id="bottomPlayerTag">
+          <div class="player-info">
+            <span id="bottomPlayerName">👤 You</span>
+            <span class="player-badge" id="bottomPlayerRole">Player</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Sidebar: Analysis, Soft Computing & Controls -->
+    <div class="sidebar">
+
+      <!-- ============================================================== -->
+      <!-- COMMENTED OUT: Learning Mode & Practice Mode (Not currently needed) -->
+      <!-- ============================================================== -->
+      <!--
+      <div class="mode-toggle-card">
+        <button class="mode-btn active" id="btnModeLearning">
+          🎓 Learning Mode
+        </button>
+        <button class="mode-btn" id="btnModePractice">
+          ⚔️ Practice Mode
+        </button>
+      </div>
+
+      <div class="move-review-card" id="moveReviewCard" style="display: none;">
+        <div class="review-badge-row">
+          <span class="review-badge best" id="reviewBadge">⭐ Best Move</span>
+          <span class="review-diff" id="reviewDiff">0.00 pawns</span>
+        </div>
+        <div class="review-desc" id="reviewDesc">Your move was analyzed.</div>
+        <div class="review-top-alt" id="reviewTopAlt" style="display: none;"></div>
+      </div>
+
+      <div class="top-moves-card" id="topMovesCard">
+        <div class="card-header-row">
+          <span class="card-title">💡 Top 3 Candidate Moves</span>
+          <span style="font-size:11px; color:var(--accent-green); font-weight:600;">Hover to preview</span>
+        </div>
+        <div class="top-moves-list" id="topMovesList">
+          <div style="font-size:12px; color:var(--text-muted);">Calculating moves...</div>
+        </div>
+      </div>
+      -->
+
+      <!-- Futuristic Cool AI Engine Thinking Dashboard (ONLY shown on right side) -->
+      <div class="right-thinking-card" id="rightSidebarThinkingCard" style="display: none;">
+        <div class="thinking-header-row">
+          <div class="thinking-title-area">
+            <span class="thinking-ai-badge">⚡ AI REASONING</span>
+            <span class="thinking-algo-label">Alpha-Beta Minimax (Depth <span id="thinkingDepthDisplay">3</span>)</span>
+          </div>
+          <div class="cyber-pulse-dot"></div>
+        </div>
+
+        <!-- Animated Radar Scanning Beam -->
+        <div class="radar-scan-bar">
+          <div class="radar-scan-beam"></div>
+        </div>
+
+        <!-- Dynamic Reasoning Terminal Stream -->
+        <div class="thinking-terminal">
+          <div class="terminal-line"><span class="term-prefix">&gt;</span> <span class="term-kw">[ALGORITHM]</span> Alpha-Beta Pruning (MVV-LVA move ordering)</div>
+          <div class="terminal-line"><span class="term-prefix">&gt;</span> <span class="term-kw">[HEURISTICS]</span> Dynamic Mamdani Fuzzy evaluation</div>
+          <div class="terminal-line highlight"><span class="term-prefix">&gt;</span> <span id="rightSidebarThinkingText">Searching game tree across branches...</span> <span class="term-cursor">▌</span></div>
+        </div>
+
+        <!-- Engine Search Metrics -->
+        <div class="thinking-metrics-row">
+          <div class="metric-pill">
+            <span class="metric-lbl">Status</span>
+            <span class="metric-val" id="thinkingStatusVal">Evaluating</span>
+          </div>
+          <div class="metric-pill">
+            <span class="metric-lbl">Heuristics</span>
+            <span class="metric-val">7 GA Features</span>
+          </div>
+          <div class="metric-pill">
+            <span class="metric-lbl">Inference</span>
+            <span class="metric-val" id="thinkingPhaseVal">Fuzzy Active</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Last AI Move Stats Banner (Shown after engine plays) -->
+      <div class="last-engine-stats-card" id="lastEngineStatsCard" style="display: none;">
+        <div class="stats-icon">🤖</div>
+        <div class="stats-content">
+          <div class="stats-title">Last AI Move: <strong id="lastEngineMoveText">e5</strong></div>
+          <div class="stats-sub" id="lastEngineStatsSub">Searched 1,240 nodes in 0.18s | Eval: +0.20</div>
+        </div>
+      </div>
+
+      <!-- Who is Leading Banner -->
+      <div class="leader-card">
+        <div>
+          <div class="leader-title">Position Evaluation</div>
+          <div class="leader-val" id="leadingStatusText">Equal position (0.00)</div>
+        </div>
+        <div class="leader-badge" id="leadingScoreBadge">0.00</div>
+      </div>
+
+      <!-- Soft Computing Architecture: Fuzzy Phase & Highly Highlighted GA Weights -->
+      <div class="sc-card" id="scCard">
+        <div class="sc-header">
+          <div class="sc-title-group">
+            <div class="card-title">🧬 Soft Computing Architecture</div>
+            <div class="sc-subtitle">Genetic Algorithm (Base) × Mamdani Fuzzy Logic (Online Modulation)</div>
+          </div>
+          <span class="sc-badge-live">LIVE ACTIVE</span>
+        </div>
+
+        <!-- Fuzzy Phase Section -->
+        <div class="fuzzy-phase-section">
+          <div class="fuzzy-section-title">
+            <span>🌓 Fuzzy Phase Membership (μ)</span>
+            <span id="fuzzyDominantPhase" class="phase-tag">Opening Phase</span>
+          </div>
+          <div class="fuzzy-bars">
+            <div class="fuzzy-row opening">
+              <div class="fuzzy-info">
+                <span class="fuzzy-label">🌱 Opening</span>
+                <span class="fuzzy-percent" id="phaseOpeningPct">100%</span>
+              </div>
+              <div class="fuzzy-progress">
+                <div class="fuzzy-bar-fill opening-fill" id="phaseOpeningBar" style="width: 100%;"></div>
+              </div>
+            </div>
+            <div class="fuzzy-row middlegame">
+              <div class="fuzzy-info">
+                <span class="fuzzy-label">⚔️ Middlegame</span>
+                <span class="fuzzy-percent" id="phaseMiddlePct">0%</span>
+              </div>
+              <div class="fuzzy-progress">
+                <div class="fuzzy-bar-fill middle-fill" id="phaseMiddleBar" style="width: 0%;"></div>
+              </div>
+            </div>
+            <div class="fuzzy-row endgame">
+              <div class="fuzzy-info">
+                <span class="fuzzy-label">👑 Endgame</span>
+                <span class="fuzzy-percent" id="phaseEndPct">0%</span>
+              </div>
+              <div class="fuzzy-progress">
+                <div class="fuzzy-bar-fill end-fill" id="phaseEndBar" style="width: 0%;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Live Tuned Weights Grid (Highlighted with Prominent Badges) -->
+        <div class="live-weights-section">
+          <div class="live-weights-header">
+            <span class="weights-sec-title">⚡ 7 Dynamically Tuned Heuristic Weights</span>
+            <span class="weights-formula-tag">Score = ∑ (wᵢ × fᵢ)</span>
+          </div>
+          <div class="live-weights-grid" id="liveWeightsGrid">
+            <!-- Dynamically populated with high-contrast cards -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Action & Replay Navigation Controls -->
+      <div class="controls-card">
+        <button class="ctrl-btn nav-btn" id="btnPrevMove" title="Go back to previous move stage (<)">
+          ◀ Back (&lt;)
+        </button>
+        <button class="ctrl-btn primary-btn" id="btnNewGame" title="Start a New Game">
+          🔄 New Game
+        </button>
+        <button class="ctrl-btn nav-btn" id="btnNextMove" title="Go forward to next move stage (>)">
+          Forward (&gt;) ▶
+        </button>
+      </div>
+
+      <!-- Replay History Navigation Status Banner -->
+      <div class="history-nav-status" id="historyNavStatus" style="display: none;">
+        <span class="history-nav-icon">⏱️</span>
+        <span class="history-nav-text" id="historyNavText">Viewing stage 3 of 6</span>
+        <button class="btn-jump-live" id="btnJumpLive">Go to Latest Move ⏭️</button>
+      </div>
+
+      <!-- Move History Table -->
+      <div class="history-card" id="historyCard">
+        <table class="history-table">
+          <tbody id="historyTbody"></tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Pawn Promotion Modal -->
+  <div class="modal-overlay" id="promotionModal">
+    <div class="modal-content">
+      <h3 style="color:#fff;">Choose Promotion Piece</h3>
+      <div class="modal-pieces">
+        <button class="promo-piece-btn" id="promoQ" onclick="selectPromotion('q')"></button>
+        <button class="promo-piece-btn" id="promoR" onclick="selectPromotion('r')"></button>
+        <button class="promo-piece-btn" id="promoB" onclick="selectPromotion('b')"></button>
+        <button class="promo-piece-btn" id="promoN" onclick="selectPromotion('n')"></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- New Game Settings Modal -->
+  <div class="modal-overlay" id="settingsModal">
+    <div class="settings-modal-content">
+      <h3 style="color:#fff;">New Game Settings</h3>
+      <div class="form-group">
+        <label>Play As</label>
+        <select id="settingColor">
+          <option value="white" selected>White (You move first)</option>
+          <option value="black">Black (AI moves first)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Engine Search Depth</label>
+        <select id="settingDepth">
+          <option value="1">Depth 1 (Fastest)</option>
+          <option value="2">Depth 2 (Quick)</option>
+          <option value="3" selected>Depth 3 (Standard)</option>
+          <option value="4">Depth 4 (Strongest)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Engine Evaluation Weights</label>
+        <select id="settingWeights">
+          <option value="tuned" selected>GA-Tuned Weights (best_weights.txt)</option>
+          <option value="baseline">Baseline Untuned Weights</option>
+        </select>
+      </div>
+      <div style="display:flex; gap:10px; margin-top:8px;">
+        <button class="ctrl-btn" id="btnCancelSettings">Cancel</button>
+        <button class="ctrl-btn" id="btnStartNewGame" style="background-color:var(--accent-green); border:none;">Start Game</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="/static/chess_pieces.js"></script>
+  <script src="/static/app.js"></script>
+</body>
+</html>

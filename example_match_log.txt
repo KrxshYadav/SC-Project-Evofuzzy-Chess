@@ -1,0 +1,926 @@
+PS C:\Dev\SC project> python play.py
+==================================================================
+  SOFT COMPUTING CHESS  --  GA-tuned + Fuzzy Logic evaluation
+==================================================================
+Play against [t]uned weights or [b]aseline? [t]: t
+
+Engine weights in use (GA-tuned):
+    material         3.000
+    mobility         1.942
+    king_safety      0.440
+    king_activity    0.849
+    doubled_pawns    1.250
+    passed_pawns     0.000
+    centre_control   0.996
+
+Play as [w]hite or [b]lack? [w]: w
+Search depth 1-4 [3]: 2
+Use unicode chess pieces? [y]/n: y
+
+You are White.  Engine depth 2.  Type 'help' for commands.
+
+   +------------------------------------------------+
+   |                                                |    Move 1
+ 8 |  ♖     ♘     ♗     ♕     ♔     ♗     ♘     ♖   |    Material on board: 78/78
+   |                                                |    Fuzzy phase: Opening 100% | Middlegame 0% | Endgame 0%
+ 7 |  ♙     ♙     ♙     ♙     ♙     ♙     ♙     ♙   |    Static evaluation: +0.00 (+ = White better)
+   |                                                |
+ 6 |  .     .     .     .     .     .     .     .   |
+   |                                                |
+ 5 |  .     .     .     .     .     .     .     .   |
+   |                                                |
+ 4 |  .     .     .     .     .     .     .     .   |
+   |                                                |
+ 3 |  .     .     .     .     .     .     .     .   |
+   |                                                |
+ 2 |  ♟     ♟     ♟     ♟     ♟     ♟     ♟     ♟   |
+   |                                                |
+ 1 |  ♜     ♞     ♝     ♛     ♚     ♝     ♞     ♜   |
+   |                                                |
+   +------------------------------------------------+
+       a     b     c     d     e     f     g     h
+
+your move> e4
+
+   +------------------------------------------------+
+   |                                                |    Move 1
+ 8 |  ♖     ♘     ♗     ♕     ♔     ♗     ♘     ♖   |    Material on board: 78/78
+   |                                                |    Fuzzy phase: Opening 100% | Middlegame 0% | Endgame 0%
+ 7 |  ♙     ♙     ♙     ♙     ♙     ♙     ♙     ♙   |    Static evaluation: +2.13 (+ = White better)
+   |                                                |
+ 6 |  .     .     .     .     .     .     .     .   |    You played: e4
+   |                                                |
+ 5 |  .     .     .     .     .     .     .     .   |
+   |                                                |
+ 4 |  .     .     .     .     ♟     .     .     .   |
+   |                                                |
+ 3 |  .     .     .     .     .     .     .     .   |
+   |                                                |
+ 2 |  ♟     ♟     ♟     ♟     .     ♟     ♟     ♟   |
+   |                                                |
+ 1 |  ♜     ♞     ♝     ♛     ♚     ♝     ♞     ♜   |
+   |                                                |
+   +------------------------------------------------+
+       a     b     c     d     e     f     g     h
+
+                                                  
+   +------------------------------------------------+
+   |                                                |    Move 2
+ 8 |  ♖     ♘     ♗     ♕     ♔     ♗     .     ♖   |    Material on board: 78/78
+   |                                                |    Fuzzy phase: Opening 100% | Middlegame 0% | Endgame 0%
+ 7 |  ♙     ♙     ♙     ♙     ♙     ♙     ♙     ♙   |    Static evaluation: +1.10 (+ = White better)
+   |                                                |
+ 6 |  .     .     .     .     .     ♘     .     .   |
+   |                                                |    Engine plays: Nf6  (score -2.98, 0.1s)
+ 5 |  .     .     .     .     .     .     .     .   |
+   |                                                |
+ 4 |  .     .     .     .     ♟     .     .     .   |
+   |                                                |
+ 3 |  .     .     .     .     .     .     .     .   |
+   |                                                |
+ 2 |  ♟     ♟     ♟     ♟     .     ♟     ♟     ♟   |
+   |                                                |
+ 1 |  ♜     ♞     ♝     ♛     ♚     ♝     ♞     ♜   |
+   |                                                |
+   +------------------------------------------------+
+       a     b     c     d     e     f     g     h
+
+your move> e5
+
+   +------------------------------------------------+
+   |                                                |    Move 2
+ 8 |  ♖     ♘     ♗     ♕     ♔     ♗     .     ♖   |    Material on board: 78/78
+   |                                                |    Fuzzy phase: Opening 100% | Middlegame 0% | Endgame 0%
+ 7 |  ♙     ♙     ♙     ♙     ♙     ♙     ♙     ♙   |    Static evaluation: +1.16 (+ = White better)
+   |                                                |
+ 6 |  .     .     .     .     .     ♘     .     .   |    You played: e5
+   |                                                |    Engine plays: Nf6  (score -2.98, 0.1s)
+ 5 |  .     .     .     .     ♟     .     .     .   |
+   |                                                |
+ 4 |  .     .     .     .     .     .     .     .   |
+   |                                                |
+ 3 |  .     .     .     .     .     .     .     .   |
+   |                                                |
+ 2 |  ♟     ♟     ♟     ♟     .     ♟     ♟     ♟   |
+   |                                                |
+ 1 |  ♜     ♞     ♝     ♛     ♚     ♝     ♞     ♜   |
+   |                                                |
+   +------------------------------------------------+
+       a     b     c     d     e     f     g     h
+
+                                                  
+   +------------------------------------------------+
+   |                                                |    Move 3
+ 8 |  ♖     ♘     ♗     ♕     ♔     ♗     .     ♖   |    Material on board: 78/78
+   |                                                |    Fuzzy phase: Opening 100% | Middlegame 0% | Endgame 0%
+ 7 |  ♙     ♙     ♙     ♙     ♙     ♙     ♙     ♙   |    Static evaluation: +0.38 (+ = White better)
+   |                                                |
+ 6 |  .     .     .     .     .     .     .     .   |
+   |                                                |    Engine plays: Ne4  (score -3.17, 0.1s)
+ 5 |  .     .     .     .     ♟     .     .     .   |
+   |                                                |
+ 4 |  .     .     .     .     ♘     .     .     .   |
+   |                                                |
+ 3 |  .     .     .     .     .     .     .     .   |
+   |                                                |
+ 2 |  ♟     ♟     ♟     ♟     .     ♟     ♟     ♟   |
+   |                                                |
+ 1 |  ♜     ♞     ♝     ♛     ♚     ♝     ♞     ♜   |
+   |                                                |
+   +------------------------------------------------+
+       a     b     c     d     e     f     g     h
+
+your move> d4
+
+   +------------------------------------------------+
+   |                                                |    Move 3
+ 8 |  ♖     ♘     ♗     ♕     ♔     ♗     .     ♖   |    Material on board: 78/78
+   |                                                |    Fuzzy phase: Opening 100% | Middlegame 0% | Endgame 0%
+ 7 |  ♙     ♙     ♙     ♙     ♙     ♙     ♙     ♙   |    Static evaluation: +2.26 (+ = White better)
+   |                                                |
+ 6 |  .     .     .     .     .     .     .     .   |    You played: d4
+   |                                                |    Engine plays: Ne4  (score -3.17, 0.1s)
+ 5 |  .     .     .     .     ♟     .     .     .   |
+   |                                                |
+ 4 |  .     .     .     ♟     ♘     .     .     .   |
+   |                                                |
+ 3 |  .     .     .     .     .     .     .     .   |
+   |                                                |
+ 2 |  ♟     ♟     ♟     .     .     ♟     ♟     ♟   |
+   |                                                |
+ 1 |  ♜     ♞     ♝     ♛     ♚     ♝     ♞     ♜   |
+   |                                                |
+   +------------------------------------------------+
+       a     b     c     d     e     f     g     h
+
+                                                  
+   +------------------------------------------------+
+   |                                                |    Move 4
+ 8 |  ♖     ♘     ♗     ♕     ♔     ♗     .     ♖   |    Material on board: 78/78
+   |                                                |    Fuzzy phase: Opening 100% | Middlegame 0% | Endgame 0%
+ 7 |  ♙     ♙     ♙     ♙     .     ♙     ♙     ♙   |    Static evaluation: +0.12 (+ = White better)
+   |                                                |
+ 6 |  .     .     .     .     ♙     .     .     .   |
+   |                                                |    Engine plays: e6  (score -2.20, 0.2s)
+ 5 |  .     .     .     .     ♟     .     .     .   |
+   |                                                |
+ 4 |  .     .     .     ♟     ♘     .     .     .   |
+   |                                                |
+ 3 |  .     .     .     .     .     .     .     .   |
+   |                                                |
+ 2 |  ♟     ♟     ♟     .     .     ♟     ♟     ♟   |
+   |                                                |
+ 1 |  ♜     ♞     ♝     ♛     ♚     ♝     ♞     ♜   |
+   |                                                |
+   +------------------------------------------------+
+       a     b     c     d     e     f     g     h
+
+your move> Nh3
+
+   +------------------------------------------------+
+   |                                                |    Move 4
+ 8 |  ♖     ♘     ♗     ♕     ♔     ♗     .     ♖   |    Material on board: 78/78
+   |                                                |    Fuzzy phase: Opening 100% | Middlegame 0% | Endgame 0%
+ 7 |  ♙     ♙     ♙     ♙     .     ♙     ♙     ♙   |    Static evaluation: -0.07 (+ = White better)
+   |                                                |
+ 6 |  .     .     .     .     ♙     .     .     .   |    You played: Nh3
+   |                                                |    Engine plays: e6  (score -2.20, 0.2s)
+ 5 |  .     .     .     .     ♟     .     .     .   |
+   |                                                |
+ 4 |  .     .     .     ♟     ♘     .     .     .   |
+   |                                                |
+ 3 |  .     .     .     .     .     .     .     ♞   |
+   |                                                |
+ 2 |  ♟     ♟     ♟     .     .     ♟     ♟     ♟   |
+   |                                                |
+ 1 |  ♜     ♞     ♝     ♛     ♚     ♝     .     ♜   |
+   |                                                |
+   +------------------------------------------------+
+       a     b     c     d     e     f     g     h
+
+                                                  
+   +------------------------------------------------+
+   |                                                |    Move 5
+ 8 |  ♖     ♘     ♗     ♕     ♔     .     .     ♖   |    Material on board: 78/78
+   |                                                |    Fuzzy phase: Opening 100% | Middlegame 0% | Endgame 0%
+ 7 |  ♙     ♙     ♙     ♙     .     ♙     ♙     ♙   |    Static evaluation: -7.20 (+ = White better)
+   |                                                |
+ 6 |  .     .     .     .     ♙     .     .     .   |
+   |                                                |    Engine plays: Bb4+  (score +0.72, 0.2s)
+ 5 |  .     .     .     .     ♟     .     .     .   |
+   |                                                |
+ 4 |  .     ♗     .     ♟     ♘     .     .     .   |
+   |                                                |
+ 3 |  .     .     .     .     .     .     .     ♞   |
+   |                                                |
+ 2 |  ♟     ♟     ♟     .     .     ♟     ♟     ♟   |
+   |                                                |
+ 1 |  ♜     ♞     ♝     ♛     ♚     ♝     .     ♜   |
+   |                                                |
+   +------------------------------------------------+
+       a     b     c     d     e     f     g     h
+
+your move> c3
+
+   +------------------------------------------------+
+   |                                                |    Move 5
+ 8 |  ♖     ♘     ♗     ♕     ♔     .     .     ♖   |    Material on board: 78/78
+   |                                                |    Fuzzy phase: Opening 100% | Middlegame 0% | Endgame 0%
+ 7 |  ♙     ♙     ♙     ♙     .     ♙     ♙     ♙   |    Static evaluation: -0.72 (+ = White better)
+   |                                                |
+ 6 |  .     .     .     .     ♙     .     .     .   |    You played: c3
+   |                                                |    Engine plays: Bb4+  (score +0.72, 0.2s)
+ 5 |  .     .     .     .     ♟     .     .     .   |
+   |                                                |
+ 4 |  .     ♗     .     ♟     ♘     .     .     .   |
+   |                                                |
+ 3 |  .     .     ♟     .     .     .     .     ♞   |
+   |                                                |
+ 2 |  ♟     ♟     .     .     .     ♟     ♟     ♟   |
+   |                                                |
+ 1 |  ♜     ♞     ♝     ♛     ♚     ♝     .     ♜   |
+   |                                                |
+   +------------------------------------------------+
+       a     b     c     d     e     f     g     h
+
+                                                  
+   +------------------------------------------------+
+   |                                                |    Move 6
+ 8 |  ♖     ♘     ♗     .     ♔     .     .     ♖   |    Material on board: 78/78
+   |                                                |    Fuzzy phase: Opening 100% | Middlegame 0% | Endgame 0%
+ 7 |  ♙     ♙     ♙     ♙     ♕     ♙     ♙     ♙   |    Static evaluation: -0.91 (+ = White better)
+   |                                                |
+ 6 |  .     .     .     .     ♙     .     .     .   |
+   |                                                |    Engine plays: Qe7  (score -0.97, 0.2s)
+ 5 |  .     .     .     .     ♟     .     .     .   |
+   |                                                |
+ 4 |  .     ♗     .     ♟     ♘     .     .     .   |
+   |                                                |
+ 3 |  .     .     ♟     .     .     .     .     ♞   |
+   |                                                |
+ 2 |  ♟     ♟     .     .     .     ♟     ♟     ♟   |
+   |                                                |
+ 1 |  ♜     ♞     ♝     ♛     ♚     ♝     .     ♜   |
+   |                                                |
+   +------------------------------------------------+
+       a     b     c     d     e     f     g     h
+
+your move> f3
+
+   +------------------------------------------------+
+   |                                                |    Move 6
+ 8 |  ♖     ♘     ♗     .     ♔     .     .     ♖   |    Material on board: 78/78
+   |                                                |    Fuzzy phase: Opening 100% | Middlegame 0% | Endgame 0%
+ 7 |  ♙     ♙     ♙     ♙     ♕     ♙     ♙     ♙   |    Static evaluation: -1.11 (+ = White better)
+   |                                                |
+ 6 |  .     .     .     .     ♙     .     .     .   |    You played: f3
+   |                                                |    Engine plays: Qe7  (score -0.97, 0.2s)
+ 5 |  .     .     .     .     ♟     .     .     .   |
+   |                                                |
+ 4 |  .     ♗     .     ♟     ♘     .     .     .   |
+   |                                                |
+ 3 |  .     .     ♟     .     .     ♟     .     ♞   |
+   |                                                |
+ 2 |  ♟     ♟     .     .     .     .     ♟     ♟   |
+   |                                                |
+ 1 |  ♜     ♞     ♝     ♛     ♚     ♝     .     ♜   |
+   |                                                |
+   +------------------------------------------------+
+       a     b     c     d     e     f     g     h
+
+                                                  
+   +------------------------------------------------+
+   |                                                |    Move 7
+ 8 |  ♖     ♘     ♗     .     ♔     .     .     ♖   |    Material on board: 78/78
+   |                                                |    Fuzzy phase: Opening 100% | Middlegame 0% | Endgame 0%
+ 7 |  ♙     ♙     ♙     ♙     .     ♙     ♙     ♙   |    Static evaluation: -8.95 (+ = White better)
+   |                                                |
+ 6 |  .     .     .     .     ♙     .     .     .   |
+   |                                                |    Engine plays: Qh4+  (score +3.57, 0.1s)
+ 5 |  .     .     .     .     ♟     .     .     .   |
+   |                                                |
+ 4 |  .     ♗     .     ♟     ♘     .     .     ♕   |
+   |                                                |
+ 3 |  .     .     ♟     .     .     ♟     .     ♞   |
+   |                                                |
+ 2 |  ♟     ♟     .     .     .     .     ♟     ♟   |
+   |                                                |
+ 1 |  ♜     ♞     ♝     ♛     ♚     ♝     .     ♜   |
+   |                                                |
+   +------------------------------------------------+
+       a     b     c     d     e     f     g     h
+
+your move> g3
+
+   +------------------------------------------------+
+   |                                                |    Move 7
+ 8 |  ♖     ♘     ♗     .     ♔     .     .     ♖   |    Material on board: 78/78
+   |                                                |    Fuzzy phase: Opening 100% | Middlegame 0% | Endgame 0%
+ 7 |  ♙     ♙     ♙     ♙     .     ♙     ♙     ♙   |    Static evaluation: -2.60 (+ = White better)
+   |                                                |
+ 6 |  .     .     .     .     ♙     .     .     .   |    You played: g3
+   |                                                |    Engine plays: Qh4+  (score +3.57, 0.1s)
+ 5 |  .     .     .     .     ♟     .     .     .   |
+   |                                                |
+ 4 |  .     ♗     .     ♟     ♘     .     .     ♕   |
+   |                                                |
+ 3 |  .     .     ♟     .     .     ♟     ♟     ♞   |
+   |                                                |
+ 2 |  ♟     ♟     .     .     .     .     .     ♟   |
+   |                                                |
+ 1 |  ♜     ♞     ♝     ♛     ♚     ♝     .     ♜   |
+   |                                                |
+   +------------------------------------------------+
+       a     b     c     d     e     f     g     h
+
+                                                  
+   +------------------------------------------------+
+   |                                                |    Move 8
+ 8 |  ♖     ♘     ♗     .     ♔     .     .     ♖   |    Material on board: 77/78
+   |                                                |    Fuzzy phase: Opening 100% | Middlegame 0% | Endgame 0%
+ 7 |  ♙     ♙     ♙     ♙     .     ♙     ♙     ♙   |    Static evaluation: -6.05 (+ = White better)
+   |                                                |
+ 6 |  .     .     .     .     ♙     .     .     .   |
+   |                                                |    Engine plays: Nxg3  (score +3.85, 0.1s)
+ 5 |  .     .     .     .     ♟     .     .     .   |
+   |                                                |
+ 4 |  .     ♗     .     ♟     .     .     .     ♕   |
+   |                                                |
+ 3 |  .     .     ♟     .     .     ♟     ♘     ♞   |
+   |                                                |
+ 2 |  ♟     ♟     .     .     .     .     .     ♟   |
+   |                                                |
+ 1 |  ♜     ♞     ♝     ♛     ♚     ♝     .     ♜   |
+   |                                                |
+   +------------------------------------------------+
+       a     b     c     d     e     f     g     h
+
+your move> Bg5
+
+   +------------------------------------------------+
+   |                                                |    Move 8
+ 8 |  ♖     ♘     ♗     .     ♔     .     .     ♖   |    Material on board: 77/78
+   |                                                |    Fuzzy phase: Opening 100% | Middlegame 0% | Endgame 0%
+ 7 |  ♙     ♙     ♙     ♙     .     ♙     ♙     ♙   |    Static evaluation: -3.85 (+ = White better)
+   |                                                |
+ 6 |  .     .     .     .     ♙     .     .     .   |    You played: Bg5
+   |                                                |    Engine plays: Nxg3  (score +3.85, 0.1s)
+ 5 |  .     .     .     .     ♟     .     ♝     .   |
+   |                                                |
+ 4 |  .     ♗     .     ♟     .     .     .     ♕   |
+   |                                                |
+ 3 |  .     .     ♟     .     .     ♟     ♘     ♞   |
+   |                                                |
+ 2 |  ♟     ♟     .     .     .     .     .     ♟   |
+   |                                                |
+ 1 |  ♜     ♞     .     ♛     ♚     ♝     .     ♜   |
+   |                                                |
+   +------------------------------------------------+
+       a     b     c     d     e     f     g     h
+
+                                                  
+   +------------------------------------------------+
+   |                                                |    Move 9
+ 8 |  ♖     ♘     ♗     .     ♔     .     .     ♖   |    Material on board: 76/78
+   |                                                |    Fuzzy phase: Opening 100% | Middlegame 0% | Endgame 0%
+ 7 |  ♙     ♙     ♙     ♙     .     ♙     ♙     ♙   |    Static evaluation: -13.58 (+ = White better)
+   |                                                |
+ 6 |  .     .     .     .     ♙     .     .     .   |
+   |                                                |    Engine plays: Bxc3+  (score -5.20, 0.2s)
+ 5 |  .     .     .     .     ♟     .     ♝     .   |
+   |                                                |
+ 4 |  .     .     .     ♟     .     .     .     ♕   |
+   |                                                |
+ 3 |  .     .     ♗     .     .     ♟     ♘     ♞   |
+   |                                                |
+ 2 |  ♟     ♟     .     .     .     .     .     ♟   |
+   |                                                |
+ 1 |  ♜     ♞     .     ♛     ♚     ♝     .     ♜   |
+   |                                                |
+   +------------------------------------------------+
+       a     b     c     d     e     f     g     h
+
+your move> Nc3
+
+   +------------------------------------------------+
+   |                                                |    Move 9
+ 8 |  ♖     ♘     ♗     .     ♔     .     .     ♖   |    Material on board: 73/78
+   |                                                |    Fuzzy phase: Opening 100% | Middlegame 0% | Endgame 0%
+ 7 |  ♙     ♙     ♙     ♙     .     ♙     ♙     ♙   |    Static evaluation: +5.20 (+ = White better)
+   |                                                |
+ 6 |  .     .     .     .     ♙     .     .     .   |    You played: Nxc3
+   |                                                |    Engine plays: Bxc3+  (score -5.20, 0.2s)
+ 5 |  .     .     .     .     ♟     .     ♝     .   |
+   |                                                |
+ 4 |  .     .     .     ♟     .     .     .     ♕   |
+   |                                                |
+ 3 |  .     .     ♞     .     .     ♟     ♘     ♞   |
+   |                                                |
+ 2 |  ♟     ♟     .     .     .     .     .     ♟   |
+   |                                                |
+ 1 |  ♜     .     .     ♛     ♚     ♝     .     ♜   |
+   |                                                |
+   +------------------------------------------------+
+       a     b     c     d     e     f     g     h
+
+                                                  
+   +------------------------------------------------+
+   |                                                |    Move 10
+ 8 |  ♖     ♘     ♗     .     ♔     .     .     ♖   |    Material on board: 70/78
+   |                                                |    Fuzzy phase: Opening 100% | Middlegame 0% | Endgame 0%
+ 7 |  ♙     ♙     ♙     ♙     .     ♙     ♙     ♙   |    Static evaluation: -7.18 (+ = White better)
+   |                                                |
+ 6 |  .     .     .     .     ♙     .     .     .   |
+   |                                                |    Engine plays: Qxg5  (score -10.36, 0.1s)
+ 5 |  .     .     .     .     ♟     .     ♕     .   |
+   |                                                |
+ 4 |  .     .     .     ♟     .     .     .     .   |
+   |                                                |
+ 3 |  .     .     ♞     .     .     ♟     ♘     ♞   |
+   |                                                |
+ 2 |  ♟     ♟     .     .     .     .     .     ♟   |
+   |                                                |
+ 1 |  ♜     .     .     ♛     ♚     ♝     .     ♜   |
+   |                                                |
+   +------------------------------------------------+
+       a     b     c     d     e     f     g     h
+
+your move> Nxg5
+
+   +------------------------------------------------+
+   |                                                |    Move 10
+ 8 |  ♖     ♘     ♗     .     ♔     .     .     ♖   |    Material on board: 61/78
+   |                                                |    Fuzzy phase: Opening 59% | Middlegame 41% | Endgame 0%
+ 7 |  ♙     ♙     ♙     ♙     .     ♙     ♙     ♙   |    Static evaluation: +24.48 (+ = White better)
+   |                                                |
+ 6 |  .     .     .     .     ♙     .     .     .   |    You played: Nxg5
+   |                                                |    Engine plays: Qxg5  (score -10.36, 0.1s)
+ 5 |  .     .     .     .     ♟     .     ♞     .   |
+   |                                                |
+ 4 |  .     .     .     ♟     .     .     .     .   |
+   |                                                |
+ 3 |  .     .     ♞     .     .     ♟     ♘     .   |
+   |                                                |
+ 2 |  ♟     ♟     .     .     .     .     .     ♟   |
+   |                                                |
+ 1 |  ♜     .     .     ♛     ♚     ♝     .     ♜   |
+   |                                                |
+   +------------------------------------------------+
+       a     b     c     d     e     f     g     h
+
+                                                  
+   +------------------------------------------------+
+   |                                                |    Move 11
+ 8 |  ♖     ♘     ♗     .     ♔     .     .     ♖   |    Material on board: 56/78
+   |                                                |    Fuzzy phase: Opening 46% | Middlegame 54% | Endgame 0%
+ 7 |  ♙     ♙     ♙     ♙     .     ♙     ♙     ♙   |    Static evaluation: +10.36 (+ = White better)
+   |                                                |
+ 6 |  .     .     .     .     ♙     .     .     .   |
+   |                                                |    Engine plays: Nxh1  (score -12.51, 0.1s)
+ 5 |  .     .     .     .     ♟     .     ♞     .   |
+   |                                                |
+ 4 |  .     .     .     ♟     .     .     .     .   |
+   |                                                |
+ 3 |  .     .     ♞     .     .     ♟     .     .   |
+   |                                                |
+ 2 |  ♟     ♟     .     .     .     .     .     ♟   |
+   |                                                |
+ 1 |  ♜     .     .     ♛     ♚     ♝     .     ♘   |
+   |                                                |
+   +------------------------------------------------+
+       a     b     c     d     e     f     g     h
+
+your move> Nb5
+
+   +------------------------------------------------+
+   |                                                |    Move 11
+ 8 |  ♖     ♘     ♗     .     ♔     .     .     ♖   |    Material on board: 56/78
+   |                                                |    Fuzzy phase: Opening 46% | Middlegame 54% | Endgame 0%
+ 7 |  ♙     ♙     ♙     ♙     .     ♙     ♙     ♙   |    Static evaluation: +9.64 (+ = White better)
+   |                                                |
+ 6 |  .     .     .     .     ♙     .     .     .   |    You played: Nb5
+   |                                                |    Engine plays: Nxh1  (score -12.51, 0.1s)
+ 5 |  .     ♞     .     .     ♟     .     ♞     .   |
+   |                                                |
+ 4 |  .     .     .     ♟     .     .     .     .   |
+   |                                                |
+ 3 |  .     .     .     .     .     ♟     .     .   |
+   |                                                |
+ 2 |  ♟     ♟     .     .     .     .     .     ♟   |
+   |                                                |
+ 1 |  ♜     .     .     ♛     ♚     ♝     .     ♘   |
+   |                                                |
+   +------------------------------------------------+
+       a     b     c     d     e     f     g     h
+
+                                                  
+   +------------------------------------------------+
+   |                                                |    Move 12
+ 8 |  ♖     .     ♗     .     ♔     .     .     ♖   |    Material on board: 56/78
+   |                                                |    Fuzzy phase: Opening 43% | Middlegame 57% | Endgame 0%
+ 7 |  ♙     ♙     ♙     ♙     .     ♙     ♙     ♙   |    Static evaluation: +9.65 (+ = White better)
+   |                                                |
+ 6 |  ♘     .     .     .     ♙     .     .     .   |
+   |                                                |    Engine plays: Na6  (score -12.68, 0.2s)
+ 5 |  .     ♞     .     .     ♟     .     ♞     .   |
+   |                                                |
+ 4 |  .     .     .     ♟     .     .     .     .   |
+   |                                                |
+ 3 |  .     .     .     .     .     ♟     .     .   |
+   |                                                |
+ 2 |  ♟     ♟     .     .     .     .     .     ♟   |
+   |                                                |
+ 1 |  ♜     .     .     ♛     ♚     ♝     .     ♘   |
+   |                                                |
+   +------------------------------------------------+
+       a     b     c     d     e     f     g     h
+
+your move> Rc1
+
+   +------------------------------------------------+
+   |                                                |    Move 12
+ 8 |  ♖     .     ♗     .     ♔     .     .     ♖   |    Material on board: 56/78
+   |                                                |    Fuzzy phase: Opening 43% | Middlegame 57% | Endgame 0%
+ 7 |  ♙     ♙     ♙     ♙     .     ♙     ♙     ♙   |    Static evaluation: +10.51 (+ = White better)
+   |                                                |
+ 6 |  ♘     .     .     .     ♙     .     .     .   |    You played: Rc1
+   |                                                |    Engine plays: Na6  (score -12.68, 0.2s)
+ 5 |  .     ♞     .     .     ♟     .     ♞     .   |
+   |                                                |
+ 4 |  .     .     .     ♟     .     .     .     .   |
+   |                                                |
+ 3 |  .     .     .     .     .     ♟     .     .   |
+   |                                                |
+ 2 |  ♟     ♟     .     .     .     .     .     ♟   |
+   |                                                |
+ 1 |  .     .     ♜     ♛     ♚     ♝     .     ♘   |
+   |                                                |
+   +------------------------------------------------+
+       a     b     c     d     e     f     g     h
+
+                                                  
+   +------------------------------------------------+
+   |                                                |    Move 13
+ 8 |  ♖     .     ♗     .     ♔     .     .     ♖   |    Material on board: 56/78
+   |                                                |    Fuzzy phase: Opening 42% | Middlegame 58% | Endgame 0%
+ 7 |  ♙     ♙     ♙     ♙     .     ♙     ♙     .   |    Static evaluation: +10.30 (+ = White better)
+   |                                                |
+ 6 |  ♘     .     .     .     ♙     .     .     ♙   |
+   |                                                |    Engine plays: h6  (score -10.53, 0.3s)
+ 5 |  .     ♞     .     .     ♟     .     ♞     .   |
+   |                                                |
+ 4 |  .     .     .     ♟     .     .     .     .   |
+   |                                                |
+ 3 |  .     .     .     .     .     ♟     .     .   |
+   |                                                |
+ 2 |  ♟     ♟     .     .     .     .     .     ♟   |
+   |                                                |
+ 1 |  .     .     ♜     ♛     ♚     ♝     .     ♘   |
+   |                                                |
+   +------------------------------------------------+
+       a     b     c     d     e     f     g     h
+
+your move> Ne4
+
+   +------------------------------------------------+
+   |                                                |    Move 13
+ 8 |  ♖     .     ♗     .     ♔     .     .     ♖   |    Material on board: 56/78
+   |                                                |    Fuzzy phase: Opening 42% | Middlegame 58% | Endgame 0%
+ 7 |  ♙     ♙     ♙     ♙     .     ♙     ♙     .   |    Static evaluation: +10.53 (+ = White better)
+   |                                                |
+ 6 |  ♘     .     .     .     ♙     .     .     ♙   |    You played: Ne4
+   |                                                |    Engine plays: h6  (score -10.53, 0.3s)
+ 5 |  .     ♞     .     .     ♟     .     .     .   |
+   |                                                |
+ 4 |  .     .     .     ♟     ♞     .     .     .   |
+   |                                                |
+ 3 |  .     .     .     .     .     ♟     .     .   |
+   |                                                |
+ 2 |  ♟     ♟     .     .     .     .     .     ♟   |
+   |                                                |
+ 1 |  .     .     ♜     ♛     ♚     ♝     .     ♘   |
+   |                                                |
+   +------------------------------------------------+
+       a     b     c     d     e     f     g     h
+
+                                                  
+   +------------------------------------------------+
+   |                                                |    Move 14
+ 8 |  ♖     .     ♗     ♔     .     .     .     ♖   |    Material on board: 56/78
+   |                                                |    Fuzzy phase: Opening 42% | Middlegame 58% | Endgame 0%
+ 7 |  ♙     ♙     ♙     ♙     .     ♙     ♙     .   |    Static evaluation: +10.89 (+ = White better)
+   |                                                |
+ 6 |  ♘     .     .     .     ♙     .     .     ♙   |
+   |                                                |    Engine plays: Kd8  (score -12.41, 0.2s)
+ 5 |  .     ♞     .     .     ♟     .     .     .   |
+   |                                                |
+ 4 |  .     .     .     ♟     ♞     .     .     .   |
+   |                                                |
+ 3 |  .     .     .     .     .     ♟     .     .   |
+   |                                                |
+ 2 |  ♟     ♟     .     .     .     .     .     ♟   |
+   |                                                |
+ 1 |  .     .     ♜     ♛     ♚     ♝     .     ♘   |
+   |                                                |
+   +------------------------------------------------+
+       a     b     c     d     e     f     g     h
+
+your move> Qd2
+
+   +------------------------------------------------+
+   |                                                |    Move 14
+ 8 |  ♖     .     ♗     ♔     .     .     .     ♖   |    Material on board: 56/78
+   |                                                |    Fuzzy phase: Opening 42% | Middlegame 58% | Endgame 0%
+ 7 |  ♙     ♙     ♙     ♙     .     ♙     ♙     .   |    Static evaluation: +12.41 (+ = White better)
+   |                                                |
+ 6 |  ♘     .     .     .     ♙     .     .     ♙   |    You played: Qd2
+   |                                                |    Engine plays: Kd8  (score -12.41, 0.2s)
+ 5 |  .     ♞     .     .     ♟     .     .     .   |
+   |                                                |
+ 4 |  .     .     .     ♟     ♞     .     .     .   |
+   |                                                |
+ 3 |  .     .     .     .     .     ♟     .     .   |
+   |                                                |
+ 2 |  ♟     ♟     .     ♛     .     .     .     ♟   |
+   |                                                |
+ 1 |  .     .     ♜     .     ♚     ♝     .     ♘   |
+   |                                                |
+   +------------------------------------------------+
+       a     b     c     d     e     f     g     h
+
+                                                  
+   +------------------------------------------------+
+   |                                                |    Move 15
+ 8 |  ♖     .     ♗     ♔     .     .     .     ♖   |    Material on board: 56/78
+   |                                                |    Fuzzy phase: Opening 42% | Middlegame 58% | Endgame 0%
+ 7 |  ♙     .     ♙     ♙     .     ♙     ♙     .   |    Static evaluation: +12.41 (+ = White better)
+   |                                                |
+ 6 |  ♘     ♙     .     .     ♙     .     .     ♙   |
+   |                                                |    Engine plays: b6  (score -13.06, 0.4s)
+ 5 |  .     ♞     .     .     ♟     .     .     .   |
+   |                                                |
+ 4 |  .     .     .     ♟     ♞     .     .     .   |
+   |                                                |
+ 3 |  .     .     .     .     .     ♟     .     .   |
+   |                                                |
+ 2 |  ♟     ♟     .     ♛     .     .     .     ♟   |
+   |                                                |
+ 1 |  .     .     ♜     .     ♚     ♝     .     ♘   |
+   |                                                |
+   +------------------------------------------------+
+       a     b     c     d     e     f     g     h
+
+your move> Qf4
+
+   +------------------------------------------------+
+   |                                                |    Move 15
+ 8 |  ♖     .     ♗     ♔     .     .     .     ♖   |    Material on board: 56/78
+   |                                                |    Fuzzy phase: Opening 42% | Middlegame 58% | Endgame 0%
+ 7 |  ♙     .     ♙     ♙     .     ♙     ♙     .   |    Static evaluation: +12.25 (+ = White better)
+   |                                                |
+ 6 |  ♘     ♙     .     .     ♙     .     .     ♙   |    You played: Qf4
+   |                                                |    Engine plays: b6  (score -13.06, 0.4s)
+ 5 |  .     ♞     .     .     ♟     .     .     .   |
+   |                                                |
+ 4 |  .     .     .     ♟     ♞     ♛     .     .   |
+   |                                                |
+ 3 |  .     .     .     .     .     ♟     .     .   |
+   |                                                |
+ 2 |  ♟     ♟     .     .     .     .     .     ♟   |
+   |                                                |
+ 1 |  .     .     ♜     .     ♚     ♝     .     ♘   |
+   |                                                |
+   +------------------------------------------------+
+       a     b     c     d     e     f     g     h
+
+                                                  
+   +------------------------------------------------+
+   |                                                |    Move 16
+ 8 |  ♖     .     ♗     ♔     .     .     .     ♖   |    Material on board: 56/78
+   |                                                |    Fuzzy phase: Opening 42% | Middlegame 58% | Endgame 0%
+ 7 |  ♙     .     ♙     ♙     .     .     ♙     .   |    Static evaluation: +11.97 (+ = White better)
+   |                                                |
+ 6 |  ♘     ♙     .     .     ♙     ♙     .     ♙   |
+   |                                                |    Engine plays: f6  (score -15.01, 0.4s)
+ 5 |  .     ♞     .     .     ♟     .     .     .   |
+   |                                                |
+ 4 |  .     .     .     ♟     ♞     ♛     .     .   |
+   |                                                |
+ 3 |  .     .     .     .     .     ♟     .     .   |
+   |                                                |
+ 2 |  ♟     ♟     .     .     .     .     .     ♟   |
+   |                                                |
+ 1 |  .     .     ♜     .     ♚     ♝     .     ♘   |
+   |                                                |
+   +------------------------------------------------+
+       a     b     c     d     e     f     g     h
+
+your move> exf6
+
+   +------------------------------------------------+
+   |                                                |    Move 16
+ 8 |  ♖     .     ♗     ♔     .     .     .     ♖   |    Material on board: 55/78
+   |                                                |    Fuzzy phase: Opening 38% | Middlegame 62% | Endgame 0%
+ 7 |  ♙     .     ♙     ♙     .     .     ♙     .   |    Static evaluation: +15.01 (+ = White better)
+   |                                                |
+ 6 |  ♘     ♙     .     .     ♙     ♟     .     ♙   |    You played: exf6
+   |                                                |    Engine plays: f6  (score -15.01, 0.4s)
+ 5 |  .     ♞     .     .     .     .     .     .   |
+   |                                                |
+ 4 |  .     .     .     ♟     ♞     ♛     .     .   |
+   |                                                |
+ 3 |  .     .     .     .     .     ♟     .     .   |
+   |                                                |
+ 2 |  ♟     ♟     .     .     .     .     .     ♟   |
+   |                                                |
+ 1 |  .     .     ♜     .     ♚     ♝     .     ♘   |
+   |                                                |
+   +------------------------------------------------+
+       a     b     c     d     e     f     g     h
+
+                                                  
+   +------------------------------------------------+
+   |                                                |    Move 17
+ 8 |  ♖     .     ♗     ♔     .     .     .     ♖   |    Material on board: 55/78
+   |                                                |    Fuzzy phase: Opening 38% | Middlegame 62% | Endgame 0%
+ 7 |  ♙     .     ♙     ♙     .     .     .     .   |    Static evaluation: +14.80 (+ = White better)
+   |                                                |
+ 6 |  ♘     ♙     .     .     ♙     ♟     .     ♙   |
+   |                                                |    Engine plays: g5  (score -15.51, 0.2s)
+ 5 |  .     ♞     .     .     .     .     ♙     .   |
+   |                                                |
+ 4 |  .     .     .     ♟     ♞     ♛     .     .   |
+   |                                                |
+ 3 |  .     .     .     .     .     ♟     .     .   |
+   |                                                |
+ 2 |  ♟     ♟     .     .     .     .     .     ♟   |
+   |                                                |
+ 1 |  .     .     ♜     .     ♚     ♝     .     ♘   |
+   |                                                |
+   +------------------------------------------------+
+       a     b     c     d     e     f     g     h
+
+your move> Qe5
+
+   +------------------------------------------------+
+   |                                                |    Move 17
+ 8 |  ♖     .     ♗     ♔     .     .     .     ♖   |    Material on board: 55/78
+   |                                                |    Fuzzy phase: Opening 38% | Middlegame 62% | Endgame 0%
+ 7 |  ♙     .     ♙     ♙     .     .     .     .   |    Static evaluation: +15.51 (+ = White better)
+   |                                                |
+ 6 |  ♘     ♙     .     .     ♙     ♟     .     ♙   |    You played: Qe5
+   |                                                |    Engine plays: g5  (score -15.51, 0.2s)
+ 5 |  .     ♞     .     .     ♛     .     ♙     .   |
+   |                                                |
+ 4 |  .     .     .     ♟     ♞     .     .     .   |
+   |                                                |
+ 3 |  .     .     .     .     .     ♟     .     .   |
+   |                                                |
+ 2 |  ♟     ♟     .     .     .     .     .     ♟   |
+   |                                                |
+ 1 |  .     .     ♜     .     ♚     ♝     .     ♘   |
+   |                                                |
+   +------------------------------------------------+
+       a     b     c     d     e     f     g     h
+
+                                                  
+   +------------------------------------------------+
+   |                                                |    Move 18
+ 8 |  ♖     .     ♗     ♔     .     .     .     ♖   |    Material on board: 55/78
+   |                                                |    Fuzzy phase: Opening 38% | Middlegame 62% | Endgame 0%
+ 7 |  ♙     .     .     ♙     .     .     .     .   |    Static evaluation: +15.16 (+ = White better)
+   |                                                |
+ 6 |  ♘     ♙     ♙     .     ♙     ♟     .     ♙   |
+   |                                                |    Engine plays: c6  (score -16.69, 0.3s)
+ 5 |  .     ♞     .     .     ♛     .     ♙     .   |
+   |                                                |
+ 4 |  .     .     .     ♟     ♞     .     .     .   |
+   |                                                |
+ 3 |  .     .     .     .     .     ♟     .     .   |
+   |                                                |
+ 2 |  ♟     ♟     .     .     .     .     .     ♟   |
+   |                                                |
+ 1 |  .     .     ♜     .     ♚     ♝     .     ♘   |
+   |                                                |
+   +------------------------------------------------+
+       a     b     c     d     e     f     g     h
+
+your move> f7
+
+   +------------------------------------------------+
+   |                                                |    Move 18
+ 8 |  ♖     .     ♗     ♔     .     .     .     ♖   |    Material on board: 55/78
+   |                                                |    Fuzzy phase: Opening 38% | Middlegame 62% | Endgame 0%
+ 7 |  ♙     .     .     ♙     .     ♟     .     .   |    Static evaluation: +16.69 (+ = White better)
+   |                                                |
+ 6 |  ♘     ♙     ♙     .     ♙     .     .     ♙   |    You played: f7
+   |                                                |    Engine plays: c6  (score -16.69, 0.3s)
+ 5 |  .     ♞     .     .     ♛     .     ♙     .   |
+   |                                                |
+ 4 |  .     .     .     ♟     ♞     .     .     .   |
+   |                                                |
+ 3 |  .     .     .     .     .     ♟     .     .   |
+   |                                                |
+ 2 |  ♟     ♟     .     .     .     .     .     ♟   |
+   |                                                |
+ 1 |  .     .     ♜     .     ♚     ♝     .     ♘   |
+   |                                                |
+   +------------------------------------------------+
+       a     b     c     d     e     f     g     h
+
+                                                  
+   +------------------------------------------------+
+   |                                                |    Move 19
+ 8 |  ♖     .     ♗     ♔     ♖     .     .     .   |    Material on board: 55/78
+   |                                                |    Fuzzy phase: Opening 34% | Middlegame 66% | Endgame 0%
+ 7 |  ♙     .     .     ♙     .     ♟     .     .   |    Static evaluation: +17.59 (+ = White better)
+   |                                                |
+ 6 |  ♘     ♙     ♙     .     ♙     .     .     ♙   |
+   |                                                |    Engine plays: Re8  (score -28.96, 0.2s)
+ 5 |  .     ♞     .     .     ♛     .     ♙     .   |
+   |                                                |
+ 4 |  .     .     .     ♟     ♞     .     .     .   |
+   |                                                |
+ 3 |  .     .     .     .     .     ♟     .     .   |
+   |                                                |
+ 2 |  ♟     ♟     .     .     .     .     .     ♟   |
+   |                                                |
+ 1 |  .     .     ♜     .     ♚     ♝     .     ♘   |
+   |                                                |
+   +------------------------------------------------+
+       a     b     c     d     e     f     g     h
+
+your move> Qf6
+
+   +------------------------------------------------+
+   |                                                |    Move 19
+ 8 |  ♖     .     ♗     ♔     ♖     .     .     .   |    Material on board: 55/78
+   |                                                |    Fuzzy phase: Opening 34% | Middlegame 66% | Endgame 0%
+ 7 |  ♙     .     .     ♙     .     ♟     .     .   |    Static evaluation: +20.90 (+ = White better)
+   |                                                |
+ 6 |  ♘     ♙     ♙     .     ♙     ♛     .     ♙   |    You played: Qf6+
+   |                                                |    Engine plays: Re8  (score -28.96, 0.2s)
+ 5 |  .     ♞     .     .     .     .     ♙     .   |
+   |                                                |
+ 4 |  .     .     .     ♟     ♞     .     .     .   |
+   |                                                |
+ 3 |  .     .     .     .     .     ♟     .     .   |
+   |                                                |
+ 2 |  ♟     ♟     .     .     .     .     .     ♟   |
+   |                                                |
+ 1 |  .     .     ♜     .     ♚     ♝     .     ♘   |
+   |                                                |
+   +------------------------------------------------+
+       a     b     c     d     e     f     g     h
+
+                                                  
+   +------------------------------------------------+
+   |                                                |    Move 20
+ 8 |  ♖     .     ♗     ♔     .     .     .     .   |    Material on board: 55/78
+   |                                                |    Fuzzy phase: Opening 29% | Middlegame 71% | Endgame 0%
+ 7 |  ♙     .     .     ♙     ♖     ♟     .     .   |    Static evaluation: +16.61 (+ = White better)
+   |                                                |
+ 6 |  ♘     ♙     ♙     .     ♙     ♛     .     ♙   |
+   |                                                |    Engine plays: Re7  (score -99998.00, 0.1s)
+ 5 |  .     ♞     .     .     .     .     ♙     .   |
+   |                                                |
+ 4 |  .     .     .     ♟     ♞     .     .     .   |
+   |                                                |
+ 3 |  .     .     .     .     .     ♟     .     .   |
+   |                                                |
+ 2 |  ♟     ♟     .     .     .     .     .     ♟   |
+   |                                                |
+ 1 |  .     .     ♜     .     ♚     ♝     .     ♘   |
+   |                                                |
+   +------------------------------------------------+
+       a     b     c     d     e     f     g     h
+
+your move> f8=Q
+
+   +------------------------------------------------+
+   |                                                |    Move 20
+ 8 |  ♖     .     ♗     ♔     .     ♛     .     .   |    Material on board: 63/78
+   |                                                |    Fuzzy phase: Opening 47% | Middlegame 53% | Endgame 0%
+ 7 |  ♙     .     .     ♙     ♖     .     .     .   |    Static evaluation: +45.95 (+ = White better)
+   |                                                |
+ 6 |  ♘     ♙     ♙     .     ♙     ♛     .     ♙   |    You played: f8=Q#
+   |                                                |    Engine plays: Re7  (score -99998.00, 0.1s)
+ 5 |  .     ♞     .     .     .     .     ♙     .   |
+   |                                                |
+ 4 |  .     .     .     ♟     ♞     .     .     .   |
+   |                                                |
+ 3 |  .     .     .     .     .     ♟     .     .   |
+   |                                                |
+ 2 |  ♟     ♟     .     .     .     .     .     ♟   |
+   |                                                |
+ 1 |  .     .     ♜     .     ♚     ♝     .     ♘   |
+   |                                                |
+   +------------------------------------------------+
+       a     b     c     d     e     f     g     h
+
+
+==============================================
+  GAME OVER -- you win by checkmate!
+  final position: r1bk1Q2/p2pr3/npp1pQ1p/1N4p1/3PN3/5P2/PP5P/2R1KB1n b - - 0 20
+==============================================
+PS C:\Dev\SC project> 
